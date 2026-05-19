@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://r7oouirqumua"]
+
+[ext_resource type="Script" uid="uid://cqn7wc8csq130" path="res://scripts/plataforma-agua.gd" id="1_jgwmk"]
+[ext_resource type="Texture2D" uid="uid://b2w8oev26s70h" path="res://sprites/nenufar.png" id="2_g8mnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_824wl"]
+size = Vector2(24, 6)
+
+[sub_resource type="Animation" id="Animation_6v8g1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_owids"]
+resource_name = "splash"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ph6bx"]
+_data = {
+&"RESET": SubResource("Animation_6v8g1"),
+&"splash": SubResource("Animation_owids")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgwmk"]
+size = Vector2(24, 7)
+
+[node name="Nenufar" type="StaticBody2D" unique_id=638461480]
+script = ExtResource("1_jgwmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2083565698]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_824wl")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=53480205]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_ph6bx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=907301765]
+texture_filter = 1
+texture = ExtResource("2_g8mnp")
+hframes = 3
+frame = 2
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1303825668]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=192405852]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_jgwmk")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

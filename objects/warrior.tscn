@@ -220,6 +220,7 @@ _data = {
 }
 
 [node name="Warrior" type="CharacterBody2D" unique_id=1710311515 groups=["Player"]]
+z_index = 1
 script = ExtResource("1_6h4xy")
 speed = 200.0
 speed_max = 200.0
