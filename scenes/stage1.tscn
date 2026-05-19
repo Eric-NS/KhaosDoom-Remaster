@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://gku1r1gtc7bw" path="res://sprites/nivel1-7.png" id="7_310cc"]
 [ext_resource type="PackedScene" uid="uid://bfpdbp8chpy7g" path="res://objects/warrior.tscn" id="8_ikwov"]
 [ext_resource type="PackedScene" uid="uid://r7oouirqumua" path="res://objects/nenufar.tscn" id="9_co1ia"]
+[ext_resource type="PackedScene" uid="uid://da56hw3lw8423" path="res://objects/nenufarflor.tscn" id="10_4fnny"]
+[ext_resource type="PackedScene" uid="uid://cqgqshruhsraa" path="res://objects/tronco.tscn" id="11_5jilv"]
 
 [sub_resource type="Animation" id="Animation_003fr"]
 resource_name = "default"
@@ -286,4 +288,13 @@ debug_color = Color(0.9627866, 0.19569221, 7.70092e-07, 0.41960785)
 position = Vector2(45, 611)
 
 [node name="Nenufar" parent="." unique_id=638461480 instance=ExtResource("9_co1ia")]
-position = Vector2(725, 640)
+position = Vector2(764, 640)
+
+[node name="Nenufarflor" parent="." unique_id=443685606 instance=ExtResource("10_4fnny")]
+position = Vector2(709, 640)
+
+[node name="Nenufarflor2" parent="." unique_id=966917400 instance=ExtResource("10_4fnny")]
+position = Vector2(874, 640)
+
+[node name="Tronco" parent="." unique_id=387586005 instance=ExtResource("11_5jilv")]
+position = Vector2(818, 640)

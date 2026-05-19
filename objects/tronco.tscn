@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cqgqshruhsraa"]
+
+[ext_resource type="Script" uid="uid://cqn7wc8csq130" path="res://scripts/plataforma-agua.gd" id="1_b21kr"]
+[ext_resource type="Texture2D" uid="uid://dmgckep36by1x" path="res://sprites/tronco.png" id="1_spat4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b21kr"]
+size = Vector2(22, 6)
+
+[sub_resource type="Animation" id="Animation_6v8g1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_owids"]
+resource_name = "splash"
+length = 0.43333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7cf47"]
+_data = {
+&"RESET": SubResource("Animation_6v8g1"),
+&"splash": SubResource("Animation_owids")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kbka"]
+size = Vector2(22, 7)
+
+[node name="Tronco" type="StaticBody2D" unique_id=387586005]
+script = ExtResource("1_b21kr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2098256992]
+shape = SubResource("RectangleShape2D_b21kr")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1157961137]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_7cf47")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=37134193]
+texture_filter = 1
+texture = ExtResource("1_spat4")
+hframes = 3
+frame = 2
+
+[node name="Area2D" type="Area2D" parent="." unique_id=602626651]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1074913422]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_7kbka")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
