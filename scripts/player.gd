@@ -106,8 +106,9 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("special"):
 			state = "special"
 		
-		if not Input.is_action_pressed("right") && not Input.is_action_pressed("left") or (state == "melee" or state == "ouch" or state == "special"):
-			velocity.x = move_toward(velocity.x, 0, desaceleration * delta)
+		if is_on_floor():
+			if not Input.is_action_pressed("right") && not Input.is_action_pressed("left") or (state == "melee" or state == "ouch" or state == "special"):
+				velocity.x = move_toward(velocity.x, 0, desaceleration * delta)
 		
 		#evitamos que la velocidad sea demasiado alta
 		velocity.x = clamp(velocity.x, -speed_max, speed_max)
