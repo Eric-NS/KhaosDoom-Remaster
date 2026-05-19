@@ -136,6 +136,9 @@ size = Vector2(55, 55)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr1p7"]
 size = Vector2(45, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pog00"]
+size = Vector2(262, 10)
+
 [node name="Stage1" type="Node2D" unique_id=916750441]
 
 [node name="Fondo" type="Node2D" parent="." unique_id=1180366115]
@@ -267,6 +270,16 @@ position = Vector2(2550, 621)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/caja3" unique_id=1402284796]
 position = Vector2(-2.5, 2)
 shape = SubResource("RectangleShape2D_cr1p7")
+
+[node name="agua" type="Area2D" parent="Colisiones" unique_id=907998075 groups=["enemy"]]
+position = Vector2(783, 647)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/agua" unique_id=1482619774 groups=["enemy"]]
+position = Vector2(18, -5)
+shape = SubResource("RectangleShape2D_pog00")
+debug_color = Color(0.9627866, 0.19569221, 7.70092e-07, 0.41960785)
 
 [node name="Warrior" parent="." unique_id=1710311515 instance=ExtResource("8_ikwov")]
 position = Vector2(45, 611)

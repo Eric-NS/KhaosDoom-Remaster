@@ -21,6 +21,7 @@ movie_writer/movie_file="C:/Users/ericn/OneDrive/Documentos/Godot/khaos-doom---r
 [global_group]
 
 Player=""
+enemy=""
 
 [input]
 

@@ -100,11 +100,11 @@ func _physics_process(delta):
 					velocity.x /= 4
 				velocity.x += speed * delta
 		
-		if Input.is_action_just_pressed("melee"):
-			state = "melee"
-		
-		if Input.is_action_just_pressed("special"):
-			state = "special"
+			if Input.is_action_just_pressed("melee"):
+				state = "melee"
+			
+			if Input.is_action_just_pressed("special"):
+				state = "special"
 		
 		if is_on_floor():
 			if not Input.is_action_pressed("right") && not Input.is_action_pressed("left") or (state == "melee" or state == "ouch" or state == "special"):
@@ -140,10 +140,11 @@ func _physics_process(delta):
 	
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemy") && dead != true:
-		$AnimationTree.play("ouch")
+	if area.is_in_group("enemy") && dead != true && state!="ouch":
+		state="ouch"
 		
 		#print(hp)
+		velocity.y -= jump_force
 		if velocity.x < 0:
 			velocity.x += 2* speed
 		else:
