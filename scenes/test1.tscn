@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cylbomv40qdps"]
+
+[ext_resource type="Texture2D" uid="uid://dkajq5w4gjkhm" path="res://icon.svg" id="1_oydga"]
+[ext_resource type="PackedScene" uid="uid://bfpdbp8chpy7g" path="res://objects/warrior.tscn" id="2_h46hq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h46hq"]
+size = Vector2(664, 95)
+
+[node name="Node2D" type="Node2D" unique_id=630069690]
+
+[node name="pisoprueba" type="StaticBody2D" parent="." unique_id=733994971]
+position = Vector2(559, 497)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pisoprueba" unique_id=1419917815]
+shape = SubResource("RectangleShape2D_h46hq")
+
+[node name="Sprite2D" type="Sprite2D" parent="pisoprueba" unique_id=1422345107]
+position = Vector2(9.536743e-07, 0.9999981)
+scale = Vector2(5.171875, 0.74999994)
+texture = ExtResource("1_oydga")
+
+[node name="Warrior" parent="." unique_id=1710311515 instance=ExtResource("2_h46hq")]
+position = Vector2(469, 188)

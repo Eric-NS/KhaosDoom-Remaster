@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://dsyih4csyi1ge"]
+
+[ext_resource type="Texture2D" uid="uid://d1frlra88nej2" path="res://sprites/nivel1-1.png" id="1_jfwne"]
+[ext_resource type="Texture2D" uid="uid://ckejea4cd26pf" path="res://sprites/nivel1-2.png" id="2_ikwov"]
+[ext_resource type="Texture2D" uid="uid://dprwxqapwbks3" path="res://sprites/nivel1-3.png" id="3_co1ia"]
+[ext_resource type="Texture2D" uid="uid://bul515g6swbh7" path="res://sprites/nivel1-4.png" id="4_4fnny"]
+[ext_resource type="Texture2D" uid="uid://dhlya4poa8ith" path="res://sprites/nivel1-5.png" id="5_5jilv"]
+[ext_resource type="Texture2D" uid="uid://c31qbsk3r0p22" path="res://sprites/nivel1-6.png" id="6_212wl"]
+[ext_resource type="Texture2D" uid="uid://gku1r1gtc7bw" path="res://sprites/nivel1-7.png" id="7_310cc"]
+[ext_resource type="PackedScene" uid="uid://bfpdbp8chpy7g" path="res://objects/warrior.tscn" id="8_ikwov"]
+
+[sub_resource type="Animation" id="Animation_003fr"]
+resource_name = "default"
+length = 2.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("6:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("7:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6pk31"]
+_data = {
+&"RESET": SubResource("Animation_003fr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfwne"]
+size = Vector2(665, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikwov"]
+size = Vector2(271, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co1ia"]
+size = Vector2(2065, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fnny"]
+size = Vector2(20, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jilv"]
+size = Vector2(30, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_212wl"]
+size = Vector2(31, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_310cc"]
+size = Vector2(20, 959)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rt7r"]
+size = Vector2(64, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_003fr"]
+size = Vector2(38, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pk31"]
+size = Vector2(55, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr1p7"]
+size = Vector2(45, 24)
+
+[node name="Stage1" type="Node2D" unique_id=916750441]
+
+[node name="Fondo" type="Node2D" parent="." unique_id=1180366115]
+
+[node name="1" type="Sprite2D" parent="Fondo" unique_id=84743294]
+position = Vector2(1500, 480)
+texture = ExtResource("1_jfwne")
+metadata/_edit_lock_ = true
+
+[node name="2" type="Sprite2D" parent="Fondo" unique_id=1886998178]
+visible = false
+texture = ExtResource("2_ikwov")
+metadata/_edit_lock_ = true
+
+[node name="3" type="Sprite2D" parent="Fondo" unique_id=154680127]
+visible = false
+texture = ExtResource("3_co1ia")
+metadata/_edit_lock_ = true
+
+[node name="4" type="Sprite2D" parent="Fondo" unique_id=426081173]
+visible = false
+texture = ExtResource("4_4fnny")
+metadata/_edit_lock_ = true
+
+[node name="5" type="Sprite2D" parent="Fondo" unique_id=2005333311]
+visible = false
+texture = ExtResource("5_5jilv")
+metadata/_edit_lock_ = true
+
+[node name="6" type="Sprite2D" parent="Fondo" unique_id=1807261710]
+visible = false
+texture = ExtResource("6_212wl")
+metadata/_edit_lock_ = true
+
+[node name="7" type="Sprite2D" parent="Fondo" unique_id=214047762]
+visible = false
+texture = ExtResource("7_310cc")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fondo" unique_id=1214515364]
+libraries/ = SubResource("AnimationLibrary_6pk31")
+
+[node name="Colisiones" type="Node2D" parent="." unique_id=1139013051]
+
+[node name="piso1" type="StaticBody2D" parent="Colisiones" unique_id=995836049]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/piso1" unique_id=1478698248]
+position = Vector2(332.5, 672)
+shape = SubResource("RectangleShape2D_jfwne")
+
+[node name="pisoagua" type="StaticBody2D" parent="Colisiones" unique_id=190894271]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/pisoagua" unique_id=889730656]
+position = Vector2(799.5, 688.5)
+shape = SubResource("RectangleShape2D_ikwov")
+
+[node name="piso2" type="StaticBody2D" parent="Colisiones" unique_id=170831433]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/piso2" unique_id=301997763]
+position = Vector2(1967.5, 670.5)
+shape = SubResource("RectangleShape2D_co1ia")
+
+[node name="plataforma1" type="StaticBody2D" parent="Colisiones" unique_id=502291522]
+position = Vector2(71, 596)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/plataforma1" unique_id=1418722785]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_4fnny")
+one_way_collision = true
+
+[node name="plataforma2" type="StaticBody2D" parent="Colisiones" unique_id=1035452005]
+position = Vector2(119, 569)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/plataforma2" unique_id=1901012118]
+shape = SubResource("RectangleShape2D_5jilv")
+one_way_collision = true
+
+[node name="plataforma3" type="StaticBody2D" parent="Colisiones" unique_id=1291227017]
+position = Vector2(72, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/plataforma3" unique_id=746847447]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_212wl")
+one_way_collision = true
+
+[node name="pared2" type="StaticBody2D" parent="Colisiones" unique_id=11296091]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/pared2" unique_id=2105253954]
+position = Vector2(-10, 479.5)
+shape = SubResource("RectangleShape2D_310cc")
+
+[node name="pared1" type="StaticBody2D" parent="Colisiones" unique_id=2005384139]
+position = Vector2(3022, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/pared1" unique_id=1261315681]
+position = Vector2(-10, 479.5)
+shape = SubResource("RectangleShape2D_310cc")
+
+[node name="pared3" type="StaticBody2D" parent="Colisiones" unique_id=1099142884]
+position = Vector2(2584, 477)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Colisiones/pared3" unique_id=937144925]
+polygon = PackedVector2Array(-10, -11, -10, 160, 46, 160, 45, -31, 14, -31, 14, -11)
+
+[node name="plataforma4" type="StaticBody2D" parent="Colisiones" unique_id=814360784]
+position = Vector2(2542, 513)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/plataforma4" unique_id=1528145869]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_4rt7r")
+
+[node name="caja1" type="StaticBody2D" parent="Colisiones" unique_id=399940099]
+position = Vector2(2430, 609)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/caja1" unique_id=1209489472]
+position = Vector2(9, 8)
+shape = SubResource("RectangleShape2D_003fr")
+
+[node name="caja2" type="StaticBody2D" parent="Colisiones" unique_id=1433354949]
+position = Vector2(2488, 603)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/caja2" unique_id=1644354554]
+position = Vector2(2.5, 4.5)
+shape = SubResource("RectangleShape2D_6pk31")
+
+[node name="caja3" type="StaticBody2D" parent="Colisiones" unique_id=1775008514]
+position = Vector2(2550, 621)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/caja3" unique_id=1402284796]
+position = Vector2(-2.5, 2)
+shape = SubResource("RectangleShape2D_cr1p7")
+
+[node name="Warrior" parent="." unique_id=1710311515 instance=ExtResource("8_ikwov")]
+position = Vector2(45, 611)
