@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dhlya4poa8ith" path="res://sprites/nivel1-5.png" id="5_5jilv"]
 [ext_resource type="Texture2D" uid="uid://c31qbsk3r0p22" path="res://sprites/nivel1-6.png" id="6_212wl"]
 [ext_resource type="Texture2D" uid="uid://gku1r1gtc7bw" path="res://sprites/nivel1-7.png" id="7_310cc"]
-[ext_resource type="PackedScene" uid="uid://bfpdbp8chpy7g" path="res://objects/warrior.tscn" id="8_ikwov"]
 [ext_resource type="PackedScene" uid="uid://r7oouirqumua" path="res://objects/nenufar.tscn" id="9_co1ia"]
 [ext_resource type="PackedScene" uid="uid://da56hw3lw8423" path="res://objects/nenufarflor.tscn" id="10_4fnny"]
+[ext_resource type="PackedScene" uid="uid://biqvsglslyl7u" path="res://objects/golem.tscn" id="10_4rt7r"]
 [ext_resource type="PackedScene" uid="uid://cqgqshruhsraa" path="res://objects/tronco.tscn" id="11_5jilv"]
 
 [sub_resource type="Animation" id="Animation_003fr"]
@@ -284,9 +284,6 @@ position = Vector2(18, 2)
 shape = SubResource("RectangleShape2D_pog00")
 debug_color = Color(0.9627866, 0.19569221, 7.70092e-07, 0.41960785)
 
-[node name="Warrior" parent="." unique_id=1710311515 instance=ExtResource("8_ikwov")]
-position = Vector2(45, 611)
-
 [node name="Nenufar" parent="." unique_id=638461480 instance=ExtResource("9_co1ia")]
 position = Vector2(764, 640)
 
@@ -298,3 +295,6 @@ position = Vector2(874, 640)
 
 [node name="Tronco" parent="." unique_id=387586005 instance=ExtResource("11_5jilv")]
 position = Vector2(818, 640)
+
+[node name="Golem" parent="." unique_id=1710311515 instance=ExtResource("10_4rt7r")]
+position = Vector2(148, 610)
