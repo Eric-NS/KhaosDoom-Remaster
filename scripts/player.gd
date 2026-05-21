@@ -15,16 +15,19 @@ func _ready():
 
 func recoil():
 	if $Sprite2D.flip_h == false:
-		velocity.x += (30 * speed) / 7
-	else:
 		velocity.x -= (30 * speed) / 7
-	
+	else:
+		velocity.x += (30 * speed) / 7
+	if is_on_floor():
+		velocity.y -= jump_force
+	else:
+		velocity.y -= jump_force * 1.3
 	
 	
 func _on_jump_height_timeout():
 	if (not Input.is_action_pressed("jump")):
 		if (velocity.y < -min_jump):
-			velocity.y = -min_jump
+			velocity.y += 180
 	else:
 		pass
 
@@ -144,11 +147,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		state="ouch"
 		
 		#print(hp)
-		velocity.y -= jump_force
-		if velocity.x < 0:
-			velocity.x += 2* speed
-		else:
-			velocity.x -= 2 * speed
+		recoil()
 		
 
 
