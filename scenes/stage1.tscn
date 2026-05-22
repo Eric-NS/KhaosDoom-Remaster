@@ -306,14 +306,14 @@ position = Vector2(874, 640)
 position = Vector2(818, 640)
 
 [node name="Golem" parent="." unique_id=1710311515 instance=ExtResource("10_4rt7r")]
-position = Vector2(148, 610)
+position = Vector2(1344, 494)
 
 [node name="Pincho" parent="." unique_id=837083125 instance=ExtResource("12_212wl")]
-position = Vector2(1131, 612)
+position = Vector2(1132, 612)
 
 [node name="Pincho2" parent="." unique_id=209148222 instance=ExtResource("12_212wl")]
-position = Vector2(1226, 612)
-flipped = true
+position = Vector2(1225, 612)
 
 [node name="Pincho3" parent="." unique_id=262896368 instance=ExtResource("12_212wl")]
-position = Vector2(1313, 612)
+position = Vector2(1312, 612)
+espejo = true

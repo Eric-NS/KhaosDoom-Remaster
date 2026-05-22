@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var flipped := false
+@export var espejo := false
 
 func _ready() -> void:
 	$AnimationPlayer.play("RESET")
-	if flipped:
+	if espejo:
 		$Sprite2D.flip_h = true
