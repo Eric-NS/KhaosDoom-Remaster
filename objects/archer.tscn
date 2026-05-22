@@ -238,7 +238,7 @@ debug_color = Color(0.15948942, 0.625341, 0.45500755, 0.41960785)
 libraries/ = SubResource("AnimationLibrary_3vgaw")
 
 [node name="JumpHeight" type="Timer" parent="." unique_id=288862435]
-wait_time = 0.17
+wait_time = 0.12
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=663195752]

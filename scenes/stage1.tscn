@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dsyih4csyi1ge"]
 
+[ext_resource type="Script" uid="uid://4j1huj70f0ck" path="res://scripts/animacion.gd" id="1_310cc"]
 [ext_resource type="Texture2D" uid="uid://d1frlra88nej2" path="res://sprites/nivel1-1.png" id="1_jfwne"]
 [ext_resource type="Texture2D" uid="uid://ckejea4cd26pf" path="res://sprites/nivel1-2.png" id="2_ikwov"]
 [ext_resource type="Texture2D" uid="uid://dprwxqapwbks3" path="res://sprites/nivel1-3.png" id="3_co1ia"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://da56hw3lw8423" path="res://objects/nenufarflor.tscn" id="10_4fnny"]
 [ext_resource type="PackedScene" uid="uid://biqvsglslyl7u" path="res://objects/golem.tscn" id="10_4rt7r"]
 [ext_resource type="PackedScene" uid="uid://cqgqshruhsraa" path="res://objects/tronco.tscn" id="11_5jilv"]
+[ext_resource type="PackedScene" uid="uid://colxya775vb73" path="res://objects/pincho.tscn" id="12_212wl"]
 
 [sub_resource type="Animation" id="Animation_003fr"]
 resource_name = "default"
@@ -145,6 +147,7 @@ size = Vector2(262, 10)
 [node name="Stage1" type="Node2D" unique_id=916750441]
 
 [node name="Fondo" type="Node2D" parent="." unique_id=1180366115]
+script = ExtResource("1_310cc")
 
 [node name="1" type="Sprite2D" parent="Fondo" unique_id=84743294]
 position = Vector2(1500, 480)
@@ -153,31 +156,37 @@ metadata/_edit_lock_ = true
 
 [node name="2" type="Sprite2D" parent="Fondo" unique_id=1886998178]
 visible = false
+position = Vector2(1500, 480)
 texture = ExtResource("2_ikwov")
 metadata/_edit_lock_ = true
 
 [node name="3" type="Sprite2D" parent="Fondo" unique_id=154680127]
 visible = false
+position = Vector2(1500, 480)
 texture = ExtResource("3_co1ia")
 metadata/_edit_lock_ = true
 
 [node name="4" type="Sprite2D" parent="Fondo" unique_id=426081173]
 visible = false
+position = Vector2(1500, 480)
 texture = ExtResource("4_4fnny")
 metadata/_edit_lock_ = true
 
 [node name="5" type="Sprite2D" parent="Fondo" unique_id=2005333311]
 visible = false
+position = Vector2(1500, 480)
 texture = ExtResource("5_5jilv")
 metadata/_edit_lock_ = true
 
 [node name="6" type="Sprite2D" parent="Fondo" unique_id=1807261710]
 visible = false
+position = Vector2(1500, 480)
 texture = ExtResource("6_212wl")
 metadata/_edit_lock_ = true
 
 [node name="7" type="Sprite2D" parent="Fondo" unique_id=214047762]
 visible = false
+position = Vector2(1500, 480)
 texture = ExtResource("7_310cc")
 metadata/_edit_lock_ = true
 
@@ -298,3 +307,13 @@ position = Vector2(818, 640)
 
 [node name="Golem" parent="." unique_id=1710311515 instance=ExtResource("10_4rt7r")]
 position = Vector2(148, 610)
+
+[node name="Pincho" parent="." unique_id=837083125 instance=ExtResource("12_212wl")]
+position = Vector2(1131, 612)
+
+[node name="Pincho2" parent="." unique_id=209148222 instance=ExtResource("12_212wl")]
+position = Vector2(1226, 612)
+flipped = true
+
+[node name="Pincho3" parent="." unique_id=262896368 instance=ExtResource("12_212wl")]
+position = Vector2(1313, 612)
