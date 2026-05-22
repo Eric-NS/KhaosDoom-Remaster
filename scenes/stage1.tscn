@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://biqvsglslyl7u" path="res://objects/golem.tscn" id="10_4rt7r"]
 [ext_resource type="PackedScene" uid="uid://cqgqshruhsraa" path="res://objects/tronco.tscn" id="11_5jilv"]
 [ext_resource type="PackedScene" uid="uid://colxya775vb73" path="res://objects/pincho.tscn" id="12_212wl"]
+[ext_resource type="PackedScene" uid="uid://wrycvq11m1hl" path="res://objects/pincho_grande.tscn" id="14_4rt7r"]
 
 [sub_resource type="Animation" id="Animation_003fr"]
 resource_name = "default"
@@ -192,6 +193,7 @@ metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fondo" unique_id=1214515364]
 libraries/ = SubResource("AnimationLibrary_6pk31")
+speed_scale = 0.5
 
 [node name="Colisiones" type="Node2D" parent="." unique_id=1139013051]
 
@@ -317,3 +319,6 @@ position = Vector2(1225, 612)
 [node name="Pincho3" parent="." unique_id=262896368 instance=ExtResource("12_212wl")]
 position = Vector2(1312, 612)
 espejo = true
+
+[node name="PinchoGrande" parent="." unique_id=1590570699 instance=ExtResource("14_4rt7r")]
+position = Vector2(1791, 592)
