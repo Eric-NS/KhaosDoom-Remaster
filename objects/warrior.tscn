@@ -266,6 +266,14 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=663195752]
 zoom = Vector2(2.5, 2.5)
 limit_left = 0
+limit_right = 3000
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=2044764958]
+zoom = Vector2(2.5, 2.5)
+limit_left = 0
+limit_right = 3000
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
