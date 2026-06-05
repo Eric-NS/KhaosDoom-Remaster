@@ -7,22 +7,27 @@ extends CharacterBody2D
 @export var jump_force = 600.0
 @export var min_jump = 20.0
 @export var desaceleration = 1700.0
+@export var max_hp = 100
+var hp
 var state = "idle"
 var dead = false
 
 func _ready():
 	velocity = Vector2.ZERO #le da una velocidad inicial de 0
+	hp = max_hp
 
 func recoil():
 	if $Sprite2D.flip_h == false:
 		velocity.x -= (30 * speed) / 7
 	else:
 		velocity.x += (30 * speed) / 7
-	if is_on_floor():
-		velocity.y -= jump_force
-	else:
-		velocity.y -= jump_force * 1.3
 	
+#func vibrar_camara():
+	#var mat := $Camera2D.material as ShaderMaterial
+	#mat.set_shader_parameter("ShakeStrength", 10.0)
+	#$Camaravibrar.start()
+	#await $Camaravibrar.timeout
+	#mat.set_shader_parameter("ShakeStrength", 0.0)
 	
 func _on_jump_height_timeout():
 	if (not Input.is_action_pressed("jump")):
@@ -117,11 +122,10 @@ func _physics_process(delta):
 		velocity.x = clamp(velocity.x, -speed_max, speed_max)
 		#lo ponemos aca para que sea mas importante y eso
 		
-		#if PlayerStats.hp <= 0:
-			#PlayerStats.hp = 0
-			#dead = true	
+		if hp <= 0:
+			dead = true	
 			#state = "death"
-			#$AnimationTree.stop()
+			$AnimationTree.stop()
 			#on_death()
 		
 		
@@ -143,11 +147,15 @@ func _physics_process(delta):
 	
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemy") && dead != true && state!="ouch":
+	if (area.is_in_group("enemy") or area.is_in_group("agua")) && dead != true && state!="ouch":
 		state = "ouch"
 		
 		#print(hp)
 		recoil()
+		#vibrar_camara()
+		if area.is_in_group("agua"):
+			velocity.y -= jump_force * 1.3
+			hp -= 3
 		
 
 

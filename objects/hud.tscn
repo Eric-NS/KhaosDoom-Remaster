@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://cv3vthpyiqk04"]
+
+[ext_resource type="Script" uid="uid://cbqfl6mam2i8g" path="res://scripts/hp-barra.gd" id="1_iin16"]
+[ext_resource type="Texture2D" uid="uid://bin2m8nxu8m20" path="res://sprites/Barra de Vida.png" id="1_l1st6"]
+[ext_resource type="Shader" uid="uid://75hr18ghge3q" path="res://sprites/hp.gdshader" id="2_mmcdi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48bpw"]
+shader = ExtResource("2_mmcdi")
+shader_parameter/hit_effect = 0.0
+shader_parameter/shake_intensity = 3.0
+shader_parameter/flash_speed = 30.0
+shader_parameter/flash_color = Color(0.7019608, 0.7019608, 0.7019608, 1)
+
+[sub_resource type="Animation" id="Animation_iin16"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.29803923, 0.29803923, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mmcdi"]
+resource_name = "low"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.29803923, 0.29803923, 1), Color(0.7019608, 0.7019608, 0.7019608, 1), Color(1, 0.29803923, 0.29803923, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_48bpw"]
+resource_name = "normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.29803923, 0.29803923, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_etayn"]
+_data = {
+&"RESET": SubResource("Animation_iin16"),
+&"low": SubResource("Animation_mmcdi"),
+&"normal": SubResource("Animation_48bpw")
+}
+
+[node name="Hud" type="CanvasLayer" unique_id=814100021]
+layer = 2
+
+[node name="hp" type="Node2D" parent="." unique_id=121145149]
+script = ExtResource("1_iin16")
+
+[node name="ColorRect" type="ColorRect" parent="hp" unique_id=1736888414]
+material = SubResource("ShaderMaterial_48bpw")
+offset_left = 85.99997
+offset_top = 71.0
+offset_right = 131.9627
+offset_bottom = 78.0
+scale = Vector2(4.025, 5)
+color = Color(1, 0.29803923, 0.29803923, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hp/ColorRect" unique_id=1433438449]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_etayn")
+
+[node name="Sprite2D" type="Sprite2D" parent="hp" unique_id=1480947379]
+z_index = 1
+texture_filter = 1
+position = Vector2(156, 91)
+scale = Vector2(5, 5)
+texture = ExtResource("1_l1st6")

@@ -204,6 +204,7 @@ gravity = 1150.0
 gravity_max = 3200.0
 jump_force = 450.0
 min_jump = 10.0
+hp = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1711605660]
 texture_filter = 1
