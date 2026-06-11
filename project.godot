@@ -23,6 +23,7 @@ movie_writer/movie_file="C:/Users/ericn/OneDrive/Documentos/Godot/khaos-doom---r
 Player=""
 enemy=""
 agua=""
+pincho=""
 
 [input]
 

@@ -17,10 +17,12 @@ func _ready():
 	hp = max_hp
 
 func recoil():
+	velocity.x = 0
 	if $Sprite2D.flip_h == false:
 		velocity.x -= (30 * speed) / 7
 	else:
 		velocity.x += (30 * speed) / 7
+	velocity.y -= jump_force * 0.3
 	
 #func vibrar_camara():
 	#var mat := $Camera2D.material as ShaderMaterial
@@ -77,12 +79,12 @@ func _physics_process(delta):
 			
 		else:
 			
-			if velocity.x == 0 && state != "melee" && state != "special":
+			if velocity.x == 0 && state != "melee" && state != "special" && state != "ouch":
 				state = "stand"
-			elif velocity.x != 0 && state != "melee" && state != "special":
+			elif velocity.x != 0 && state != "melee" && state != "special" && state != "ouch":
 				state = "walk"
 			
-			if Input.is_action_just_pressed("jump") && state != "melee" && state != "special":
+			if Input.is_action_just_pressed("jump") && state != "melee" && state != "special" && state !="ouch":
 				#velocity.y = 0
 				velocity.y = -jump_force
 				state = "jump"
@@ -147,16 +149,18 @@ func _physics_process(delta):
 	
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if (area.is_in_group("enemy") or area.is_in_group("agua")) && dead != true && state!="ouch":
-		state = "ouch"
-		
-		#print(hp)
-		recoil()
-		#vibrar_camara()
-		if area.is_in_group("agua"):
-			velocity.y -= jump_force * 1.3
-			hp -= 3
-		
+	if state!="ouch" && dead != true:
+		if (area.is_in_group("enemy") or area.is_in_group("agua")):
+			state = "ouch"
+			
+			#print(hp)
+			recoil()
+			#vibrar_camara()
+			if area.is_in_group("agua"):
+				velocity.y -= jump_force * 1.3
+				hp -= 3
+			elif area.is_in_group("pincho"):
+				hp -= 3
 
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
